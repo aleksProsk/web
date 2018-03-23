@@ -4,6 +4,17 @@
 	<meta name="viewport" content="width=device-width"></meta>
 	<title>Dwear Web Panel</title>
 	<link rel="stylesheet" href="css/style.css"></link>
+	<script>
+		function myFunction() {
+			var x = document.getElementById("search-panel");
+			if (x.style.display === "none") {
+				x.style.display = "block";
+			} else {
+				x.style.display = "none";
+			}
+		}
+	</script>
+	
 </head>
 
 <body>
@@ -19,7 +30,7 @@
 		</div>
 	</div>
 	
-	<div class=search-panel>
+	<div class=search-panel id="search-panel">
 		<input class=search type="text"></input>
 		
 		<div class=search-attributes>
@@ -177,7 +188,33 @@
 	</div>
 	
 	<div class=content>
-		<img src='icons/search.png'></img>
+		<div class=result>
+			<div class=result-item>
+				<img class=video src='img/cat.jpg' ></img>
+				<img class=graph src='img/graph.png'></img>
+				<div class=info>
+					<h1>Information</h1>
+					Here would be some info about this item.
+				</div>
+			</div>
+		</div>
+		
+		<div class=result>
+			<div class=result-item>
+				<img class=video src='img/random.jpg' ></img>
+				<img class=graph src='img/graph.png'></img>
+				<div class=info>
+					<h1>Information</h1>
+					Here would be some info about this item.
+				</div>
+			</div>
+		</div>
+		
+		
+		<!-- DELETE THIS!!!-->
+		<br><br><br>
+		<button onclick="myFunction()">DEBUG BUTTON TO HIDE SEARCH PANEL</button>
+		<br><br><br>
 	</div>
 </div>
 </body>
