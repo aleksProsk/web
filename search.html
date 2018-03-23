@@ -1,144 +1,175 @@
 <!DOCTYPE html>
 
 <head>
+	<meta name="viewport" content="width=device-width"></meta>
 	<title>Dwear Web Panel</title>
 	<link rel="stylesheet" href="css/style.css"></link>
-	<link rel="stylesheet" href="css/checkbox.css"></link>
-	<script>
-	window.onmousedown = function (e) {
-		var el = e.target;
-		if (el.tagName.toLowerCase() == 'option' && el.parentNode.getAttribute('name') == 'list-of-available-models') {
-			e.preventDefault();
-			if (el.hasAttribute('selected')) el.removeAttribute('selected');
-			else el.setAttribute('selected', '');
-			var select = el.parentNode.cloneNode(true);
-			el.parentNode.parentNode.replaceChild(select, el.parentNode);
-		}
-	}
-	</script>
 </head>
 
 <body>
+<div class=root>
 	<div class=header>
 		<div class=header-item>Dwear Web Panel</div>
 		<div class=title>Snippets search</div>
 		<div class=login>
 			<div class=user>logged in as Daria</div>
 			<div class=user>
-					<input type=button class='login-button' name='logout' value='logout'></input>
+					<button class='login-button'>log out</button>
 			</div>
 		</div>
 	</div>
 	
 	<div class=search-panel>
-		<input class=search type="text" name="search">
-		</input>
+		<input class=search type="text"></input>
+		
 		<div class=search-attributes>
 		
 			<div class=attribute-group>
 				<h1>General Filters</h1>
 				<div class=attribute>
-					<div style='display:flex; flex-direction: column;'>
-						Stream Name
-						<input type=text class=line name=stream-name></input>
+					<div class='checkbox inactive'>
+						<input type=checkbox class='checkbox' id='stream-name'></input>
+						<label for='stream-name'>
+							<div class=attribute-line>
+								Stream Name
+								<input type=text class=line></input>
+							</div>
+						</label>
 					</div>
 				</div>
 				<div class=attribute>
-					<select multiple size="1" name='saving'>
-						<option name='saved'>saved</option>
-						<option name='unsaved'>unsaved</option>
-					</select>
+					<div class='checkbox inactive'>
+						<input type=checkbox class='checkbox' id='saved'></input>
+						<label for='saved'>
+							<div class=button-list>
+								<button class=button>saved</button>
+								<button class=button>unsaved</button>
+							</div>
+						</label>
+					</div>
 				</div>
 				<div class=attribute>
-					<div style='display:flex; flex-direction: column;'>
-						Snippet name
-						<input type=text class=line name=snippet-name></input>
+					<div class='checkbox inactive'>
+						<input type=checkbox class='checkbox' id='snippet-name'></input>
+						<label for='snippet-name'>
+							<div class=attribute-line>
+								Snippet name
+								<input type=text class=line></input>
+							</div>
+						</label>
 					</div>
 				</div>
 			</div>
+			
 			
 			<div class=attribute-group>
 				<h1>Time Filters</h1>
 				<div class=attribute>
-					<select multiple size="1" name='time-filters'>
-						<option name='live-now'>live now</option>
-						<option name='restrited-time'>restricted time</option>
-					</select>
-				</div>
-				<div class=attribute>
-					<div style='display:flex; flex-direction: column;'>
-						Starts after
-						<input type=text class=line name=starts-after></input>
+					<div class='checkbox inactive'>
+						<input type=checkbox class='checkbox' id='live'></input>
+						<label for='live'>
+							<div class=button-list>
+								<button class=button>live now</button>
+								<button class=button>restricted time</button>
+							</div>
+						</label>
 					</div>
 				</div>
 				<div class=attribute>
-					<div style='display:flex; flex-direction: column;'>
-						Ends before
-						<input type=text class=line name=ends-before></input>
+					<div class='checkbox inactive'>
+						<input type=checkbox class='checkbox' id='starts-after'></input>
+						<label for='starts-after'>
+							<div class=attribute-line>
+								Starts after
+								<input type=text class=line></input>
+							</div>
+						</label>
+					</div>
+				</div>
+				<div class=attribute>
+					<div class='checkbox inactive'>
+						<input type=checkbox class='checkbox' id='ends-before'></input>
+						<label for='ends-before'>
+							<div class=attribute-line>
+								Ends before
+								<input type=text class=line></input>
+							</div>
+						</label>
 					</div>
 				</div>
 			</div>
+			
 			
 			<div class=attribute-group>
 				<h1>Available Data</h1>
-				<div class=attribute style='padding: 20px 5px 5px 5px'>
-					<input type='checkbox' class='css-checkbox' name='video' id='video'></input>
-					<label for="video" class="css-label">
-						video
-					</label>
-				</div>
-				<div class=attribute style='padding: 5px 5px 5px 5px'>
-					<input type='checkbox' class='css-checkbox' name='audio' id='audio'></input>
-					<label for="audio" class="css-label">
-						audio
-					</label>
-				</div>
-				<div class=attribute style='padding: 5px 5px 5px 5px'>
-					<input type='checkbox' class='css-checkbox' name='geolocation' id='geolocation'></input>
-					<label for="geolocation" class="css-label">
-						geolocation
-					</label>
-				</div>
+					<div class='attribute-group attribute-subgroup'>
+						<div class='attribute large'>
+							<div class="checkbox checkbox-group">
+								<input type='checkbox' class='checkbox' id='video'></input>
+								<label for="video">
+									video
+								</label>
+							</div>
+							<div class="checkbox checkbox-group">
+								<input type='checkbox' class='checkbox' id='audio'></input>
+								<label for="audio">
+									audio
+								</label>
+							</div>
+							<div class="checkbox checkbox-group">
+								<input type='checkbox' class='checkbox' id='geolocation'></input>
+								<label for="geolocation">
+									geolocation
+								</label>
+							</div>
+						</div>
+					</div>
 				<div class=attribute>
-					<select multiple size="1" name='demo'>
-						<option name='demo'>demo</option>
-						<option name='non-demo'>non-demo</option>
-					</select>
+					<div class='checkbox inactive'>
+						<input type=checkbox class='checkbox' id='demo'></input>
+						<label for='demo'>
+							<div class=button-list>
+								<button class=button>demo</button>
+								<button class=button>non-demo</button>
+							</div>
+						</label>
+					</div>
 				</div>
 			</div>
 			
-			<div class=attribute-group style="flex-basis: 50%">
-				<div class=attribute-group>
+			
+			<div class='attribute-group half'>
+				<div class='attribute-group attribute-subgroup'>
 					<h1>Available models
-					<input type=button class=mybutton name='select-all' value='select all'></input>
-					<input type=button class=mybutton name='deselect-all' value='deselect all'></input>
+						<button class=mybutton>select all</button>
+						<button class=mybutton>deselect all</button>
 					</h1>
-					<select multiple size="2" name='list-of-available-models'>
-						<option>ml-test-351</option>
-						<option>context-random-forest</option>
-						<option>nemil-42</option>
-						<option>ml-test-3</option>
-						<option>object-random-forest</option>
-						<option>test-123</option>
-						<option>test-1</option>
-						<option>test-11</option>
-						<option>model-shevkunov</option>
-						<option>sample</option>
-						<option>tf-reinforced</option>
-						<option>object-random-forest-2</option>
-						<option>test-321</option>
-						<option>test-2</option>
-						<option>test-22</option>
-					</select>
+					<div class=button-list>
+						<button class=button>ml-test-351</button>
+						<button class=button>context-random-forest</button>
+						<button class=button>nemil-42</button>
+						<button class=button>ml-test-3</button>
+						<button class=button>object-random-forest</button>
+						<button class=button>test-123</button>
+						<button class=button>test-1</button>
+						<button class=button>test-11</button>
+						<button class=button>model-shevkunov</button>
+						<button class=button>sample</button>
+						<button class=button>tf-reinforced</button>
+						<button class=button>object-random-forest-2</button>
+						<button class=button>test-321</button>
+						<button class=button>test-2</button>
+						<button class=button>test-22</button>
+					</div>
 				</div>
-				<div class=attribute-group>
+				<div class='attribute-group attribute-subgroup'>
 					<h1>Detected objects
-					<input type=button class=mybutton name='edit-objects-list' value='edit objects list'></input>
+						<button class=mybutton>edit objects list</button>
 					</h1>
-					<select multiple size="1">
-						<option>image: cat</option>
-						<option>word: cat</option>
-					</select>
+					<div class=button-list>
+						<button class=button>image: cat</button>
+						<button class=button>word: cat</button>
+					</div>
 				</div>
 			</div>
 			
@@ -146,9 +177,9 @@
 	</div>
 	
 	<div class=content>
-		
+		<img src='icons/search.png'></img>
 	</div>
-
+</div>
 </body>
 
 </html>

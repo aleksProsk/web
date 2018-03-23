@@ -1,15 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 
-body {
+.root {
 	font-family: 'Roboto Mono';
 	background-color: #212124;
-}
-
-input[type=text]:focus {
-  outline: none;
-}
-
-h1 {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .header {
@@ -19,7 +17,7 @@ h1 {
 	justify-content: space-between;
 	align-items: center;
 	background-color: black;
-	color: white;
+	color: #d8d9da;
 	padding: 5px 20px 5px 20px;
 	position: fixed;
 	left: 0;
@@ -46,7 +44,6 @@ h1 {
 }
 
 .search-panel {
-	position: relative;
 	top: 30px;
 	padding: 10px 20px 20px 20px;
 	box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
@@ -57,14 +54,15 @@ h1 {
 
 .search {
     border: none;
-    border-bottom: 2px solid grey;
-	color: white;
+    border-bottom: 1px solid #d8d9da;
+	color: #d8d9da;
 	font-family: 'Roboto Mono';
 	font-size: 14px;
-	width: 100%;
-	padding: 5px 20px 5px 0px;
-	background-color: #212124;
-	background-image: url('../icons/search.png') no-repeat 0px 0px;
+	width: 95%;
+	padding: 5px 0px 7px 35px;
+	background: url('../icons/search.png') no-repeat 0px 0px #212124;
+	background-size: 30px 30px;
+	outline: none;
 }
 
 .search-attributes {
@@ -74,15 +72,28 @@ h1 {
 }
 
 .attribute-group {
+    padding: 10px;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	color: white;
+	color: #d8d9da;
+}
+
+.half {
+	flex-basis: 50%;
+}
+
+.large {
+	flex-basis: 66%;
+}
+
+.attribute-subgroup {
+	padding: 0px 0px 0px 0px;
 }
 
 .attribute-group  h1{
-	color: white;
+	color: #d8d9da;
 	font-size: 14px;
 	font-weight: normal;
 	text-align: center;
@@ -91,58 +102,89 @@ h1 {
 
 .attribute {
 	font-family: 'Roboto Mono';
-	color: white;
+	color: #d8d9da;
 	font-size: 10px;
 	padding: 10px 10px 10px 0px;
 }
 
+.attribute-line {
+	display:flex; 
+	flex-direction: column;
+}
+
 .line {
 	font-family: 'Roboto Mono';
-	color: white;
+	color: #d8d9da;
 	font-size: 10px;
 	background-color: #212124;
 	width: 100%;
     border: none;
-    border-bottom: 2px solid grey;
+    border-bottom: 1px solid #d8d9da;
 	padding: 3px 3px 3px 0px;
-}
-
-
-
-select {
-	border: none;
-	background-color: #212124;
-	white-space: normal;
-	font-family: 'Roboto Mono';
-	color: white;
-	font-size: 10px;
-    overflow-y: auto;
-	padding: 10px 0px 0px 0px;
-}
-
-select:focus {
 	outline: none;
+	pointer-events: auto;
 }
 
-option {
+.checkbox {
+	position:relative;
+    padding: 0px 25px;
+  	font-family: 'Roboto Mono';
+	color: #d8d9da;
+	font-size: 10px;
+}
+
+.checkbox-group {
+	padding: 7px 25px;
+}
+
+.inactive {
+	pointer-events: none;
+}
+
+.checkbox input[type=checkbox] {
+	display:none;
+}
+
+.checkbox label:after {
+	content:'';
+	display:block;
+	height:14px;
+	width:14px;
+	outline: 1px solid #d8d9da;
+	position:absolute;
+	top:0;
+	left:0;
+    margin: 5px 0px;
+}
+.checkbox input[type=checkbox]:checked + label:after {
+	outline:1px solid #d8d9da;
+	border:2px solid #212124;
+	width:10px;
+	height:10px;
+	background-color:#d8d9da;
+}
+
+.button {
 	border: none;
 	background-color: #212124;
 	display: inline-block;
 	font-family: 'Roboto Mono';
-	color: white;
+	color: #d8d9da;
 	font-size: 10px;
-	padding: 4px 8px 4px 0px;
+	padding: 4px 8px 4px 4px;
+    outline: none;
+	pointer-events: auto;
 }
 
-option:checked, option:hover, option:focus, option:active, option:checked:after {
-	background-color: white;
+.button:checked, .button:hover, .button:focus, .button:active {
+	background-color: #d8d9da;
 	color: #212124;
 	outline: none;
 }
 
 .mybutton {
 	border: none;
-	color: white;
+	color: #d8d9da;
 	font-family: 'Roboto Mono';
 	font-size: 10px;
     text-align: center;
@@ -152,14 +194,14 @@ option:checked, option:hover, option:focus, option:active, option:checked:after 
 }
 
 .mybutton:hover {
-	background-color: white;
+	background-color: #d8d9da;
 	color: #212124;
 }
 
 .login-button {
     text-align: center;
 	border: none;
-	color: white;
+	color: #d8d9da;
 	font-family: 'Roboto Mono';
 	font-size: 14px; 
 	background-color: black;
@@ -173,12 +215,14 @@ option:checked, option:hover, option:focus, option:active, option:checked:after 
 	color: black;
 	font-family: 'Roboto Mono';
 	font-size: 14px; 
-	background-color: white;
+	background-color: #d8d9da;
 	text-decoration: underline;
 	outline: none;
 }
 
 .content {
+	position: absolute;
+	top: 30px;
 }
 
 
