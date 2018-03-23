@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Dwear Web Panel</title>
+	<link rel="stylesheet" href="css/style.css"></link>
+	<link rel="stylesheet" href="css/checkbox.css"></link>
+	<script>
+	window.onmousedown = function (e) {
+		var el = e.target;
+		if (el.tagName.toLowerCase() == 'option' && el.parentNode.getAttribute('name') == 'list-of-available-models') {
+			e.preventDefault();
+			if (el.hasAttribute('selected')) el.removeAttribute('selected');
+			else el.setAttribute('selected', '');
+			var select = el.parentNode.cloneNode(true);
+			el.parentNode.parentNode.replaceChild(select, el.parentNode);
+		}
+	}
+	</script>
+</head>
+
+<body>
+	<div class=header>
+		<div class=header-item>Dwear Web Panel</div>
+		<div class=title>Snippets search</div>
+		<div class=login>
+			<div class=user>logged in as Daria</div>
+			<div class=user>log out</div>
+		</div>
+	</div>
+	
+	<div class=search-panel>
+		<input class=search type="text" name="search">
+		</input>
+		<div class=search-attributes>
+		
+			<div class=attribute-group>
+				<h1>General Filters</h1>
+				<div class=attribute>
+					<div style='display:flex; flex-direction: column;'>
+						Stream Name
+						<input type=text class=line name=stream-name></input>
+					</div>
+				</div>
+				<div class=attribute>
+					<select multiple size="1" name='saving'>
+						<option name='saved'>saved</option>
+						<option name='unsaved'>unsaved</option>
+					</select>
+				</div>
+				<div class=attribute>
+					<div style='display:flex; flex-direction: column;'>
+						Snippet name
+						<input type=text class=line name=snippet-name></input>
+					</div>
+				</div>
+			</div>
+			
+			<div class=attribute-group>
+				<h1>Time Filters</h1>
+				<div class=attribute>
+					<select multiple size="1" name='time-filters'>
+						<option name='live-now'>live now</option>
+						<option name='restrited-time'>restricted time</option>
+					</select>
+				</div>
+				<div class=attribute>
+					<div style='display:flex; flex-direction: column;'>
+						Starts after
+						<input type=text class=line name=starts-after></input>
+					</div>
+				</div>
+				<div class=attribute>
+					<div style='display:flex; flex-direction: column;'>
+						Ends before
+						<input type=text class=line name=ends-before></input>
+					</div>
+				</div>
+			</div>
+			
+			<div class=attribute-group>
+				<h1>Available Data</h1>
+				<div class=attribute style='padding: 20px 5px 5px 5px'>
+					<input type='checkbox' class='css-checkbox' name='video' id='video'></input>
+					<label for="video" class="css-label">
+						video
+					</label>
+				</div>
+				<div class=attribute style='padding: 5px 5px 5px 5px'>
+					<input type='checkbox' class='css-checkbox' name='audio' id='audio'></input>
+					<label for="audio" class="css-label">
+						audio
+					</label>
+				</div>
+				<div class=attribute style='padding: 5px 5px 5px 5px'>
+					<input type='checkbox' class='css-checkbox' name='geolocation' id='geolocation'></input>
+					<label for="geolocation" class="css-label">
+						geolocation
+					</label>
+				</div>
+				<div class=attribute>
+					<select multiple size="1" name='demo'>
+						<option name='demo'>demo</option>
+						<option name='non-demo'>non-demo</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class=attribute-group style="flex-basis: 50%">
+				<div class=attribute-group>
+					<h1>Available models
+					<input type=button class=mybutton name='select-all' value='select all'></input>
+					<input type=button class=mybutton name='deselect-all' value='deselect all'></input>
+					</h1>
+					<select multiple size="2" name='list-of-available-models'>
+						<option>ml-test-351</option>
+						<option>context-random-forest</option>
+						<option>nemil-42</option>
+						<option>ml-test-3</option>
+						<option>object-random-forest</option>
+						<option>test-123</option>
+						<option>test-1</option>
+						<option>test-11</option>
+						<option>model-shevkunov</option>
+						<option>sample</option>
+						<option>tf-reinforced</option>
+						<option>object-random-forest-2</option>
+						<option>test-321</option>
+						<option>test-2</option>
+						<option>test-22</option>
+					</select>
+				</div>
+				<div class=attribute-group>
+					<h1>Detected objects
+					<input type=button class=mybutton name='edit-objects-list' value='edit objects list'></input>
+					</h1>
+					<select multiple size="1">
+						<option>image: cat</option>
+						<option>word: cat</option>
+					</select>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	<div class=content>
+		
+	</div>
+
+</body>
+
+</html>
